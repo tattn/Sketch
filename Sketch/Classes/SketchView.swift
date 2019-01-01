@@ -46,8 +46,8 @@ public class SketchView: UIView {
     private var currentPoint: CGPoint?
     private var previousPoint1: CGPoint?
     private var previousPoint2: CGPoint?
-    private var image: UIImage?
-    private var backgroundImage: UIImage?
+    public var image: UIImage?
+    public var backgroundImage: UIImage?
     private var drawMode: ImageRenderingMode = .original
 
     public override init(frame: CGRect) {
