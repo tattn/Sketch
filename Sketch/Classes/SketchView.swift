@@ -32,7 +32,7 @@ public enum ImageRenderingMode {
     @objc optional func drawView(_ view: SketchView, didEndDrawUsingTool tool: AnyObject)
 }
 
-public class SketchView: UIView {
+open class SketchView: UIView {
     public var lineColor = UIColor.black
     public var lineWidth = CGFloat(10)
     public var lineAlpha = CGFloat(1)
@@ -64,7 +64,7 @@ public class SketchView: UIView {
         backgroundColor = UIColor.clear
     }
 
-    public override func draw(_ rect: CGRect) {
+    open override func draw(_ rect: CGRect) {
         super.draw(rect)
 
         switch drawMode {
@@ -144,7 +144,7 @@ public class SketchView: UIView {
         }
     }
 
-    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
 
         previousPoint1 = touch.previousLocation(in: self)
@@ -172,7 +172,7 @@ public class SketchView: UIView {
         }
     }
 
-    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
 
         previousPoint2 = previousPoint1
@@ -189,7 +189,7 @@ public class SketchView: UIView {
         }
     }
 
-    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         touchesMoved(touches, with: event)
         finishDrawing()
     }
